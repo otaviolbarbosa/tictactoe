@@ -28,16 +28,21 @@ const MatchesPage = () => {
         <h2 className="text-2xl font-bold mb-4">Previous Matches</h2>
         <div className="flex flex-col gap-4">
           {matches?.map((match, index) => (
-            <div key={index} className="border rounded border-gray-400 p-4">
-              <div className="text-xl font-bold">Match {index + 1}</div>
-              <div>
-                Match date: {dayjs(match.createdAt).format("MMM DD, HH:mm")}
+            <div key={index} className="flex justify-between items-end border rounded border-gray-400 p-4">
+              <div className="">
+                <div className="text-xl font-bold">Match {index + 1}</div>
+                <div>
+                  Match date: {dayjs(match.createdAt).format("MMM DD, HH:mm")}
+                </div>
+                <div className="flex items-center gap-2">
+                  <div>Winner:</div>
+                  {match.winner ? <PlayerIcon player={match.winner as Player} /> : 'Draw'}
+                </div>
               </div>
-              <div className="flex items-center"><div>Winner:</div> <PlayerIcon player={match.winner as Player} /></div>
               <div>
                 <Link
                   href={`/matches/${match.id}`}
-                  className="bg-blue-700 rounded-md text-white font-semibold px-5 py-3"
+                  className="flex bg-blue-700 rounded-md text-white font-semibold justify-center w-[220px] px-5 py-3"
                 >
                   View Match Summary
                 </Link>
