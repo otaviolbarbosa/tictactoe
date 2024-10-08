@@ -45,6 +45,7 @@ const LoginPage = () => {
 
       router.push("/game");
     } catch (error) {
+      console.log(error);
       toast.error("Failed to sign in");
     } finally {
       setIsLoading(false);

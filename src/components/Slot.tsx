@@ -1,5 +1,5 @@
 import { Player } from "@/types/game";
-import React, { useMemo } from "react";
+import React from "react";
 import PlayerIcon from "./PlayerIcon";
 
 type SlotProps = {

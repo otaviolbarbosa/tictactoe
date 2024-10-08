@@ -2,7 +2,7 @@
 
 import { userSelector } from "@/app/store/slices/authSlice";
 import { useSession } from "next-auth/react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { addAuthenticatedUser } from "@/app/store/slices/authSlice";
 import { useAppDispatch } from "@/app/store/hooks";

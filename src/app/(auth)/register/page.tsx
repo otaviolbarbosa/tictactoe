@@ -48,7 +48,9 @@ const RegisterPage = () => {
       }
 
       throw Error((await response.json())?.message ?? undefined)
-    } catch (error) {
+
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    } catch (error: any) {
       toast.error(error?.message ?? "Error on creating user", {
         position: "top-center",
         autoClose: 5000,

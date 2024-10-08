@@ -5,10 +5,10 @@ import Google from "next-auth/providers/google";
 import prisma from "./prisma";
 import { compare } from "bcrypt";
 
-interface Credentials {
-  email: string;
-  password: string;
-}
+// interface Credentials {
+//   email: string;
+//   password: string;
+// }
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
@@ -21,7 +21,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         email: { label: "Email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials: Credentials) {
+      async authorize(credentials) {
         if(!credentials.email || !credentials.password) {
           return null;
         }
@@ -34,7 +34,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 
         if(!existingUser) return null;
 
-        const matchedPassword = await compare(credentials.password, existingUser.password as string)
+        const matchedPassword = await compare(credentials.password, existingUser.password)
 
         if(!matchedPassword) return null;
 

@@ -92,7 +92,7 @@ const useGame = () => {
       }
     };
 
-    realMatch && checkIsGameOver();
+    if(realMatch) checkIsGameOver();
   }, [winner, isDraw]);
 
   return {

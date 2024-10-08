@@ -8,7 +8,7 @@ const registerSchema = z.object({
   password: z.string().min(5, "Password must be at least 5 characters long"),
 });
 
-export const GET = async (req: Request) => {
+export const GET = async () => {
   return NextResponse.json({ success: true });
 };
 
@@ -46,13 +46,15 @@ export const POST = async (req: Request) => {
       },
     });
 
+    /* eslint-disable @typescript-eslint/no-unused-vars */
     const { password: _, ...user } = userData;
 
     return NextResponse.json(
       { user: user, message: "User created successfully" },
       { status: 201 }
     );
-  } catch (error) {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+  } catch (error: any) {
     return NextResponse.json(
       {
         message: `[Error]: Internal server error`,

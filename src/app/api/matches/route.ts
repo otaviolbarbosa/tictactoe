@@ -29,7 +29,8 @@ export const POST = async (req: Request) => {
       { match },
       { status: 201 }
     );
-  } catch (error) {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+  } catch (error: any) {
     return NextResponse.json(
       {
         message: `[Error]: Internal server error`,

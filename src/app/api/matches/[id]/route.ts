@@ -17,10 +17,12 @@ export const GET = async (req: Request, { params }: MatchParams) => {
     return NextResponse.json({
       match: matchData,
     });
-  } catch (error) {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+  } catch (error: any) {
     return NextResponse.json(
       {
         message: "Internal Server Error",
+        messages: JSON.parse(error?.message ?? undefined),
       },
       { status: 500 }
     );

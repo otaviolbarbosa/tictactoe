@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Slot from "./Slot";
 import useGame from "../hooks/useGame";
 import PlayerIcon from "./PlayerIcon";
-import { Move, Player } from "@/types/game";
+import { Move } from "@/types/game";
 
 type TicTacToeParams = {
   movements?: Move[];
@@ -37,7 +37,7 @@ const TicTacToe = ({ movements }: TicTacToeParams) => {
       const newBoard = Array(9).fill(null)
       movements.map(movement => newBoard[movement.position] = movement.player)
       setBoard(newBoard)
-      movements && setMoves(movements)
+      setMoves(movements)
       checkBoard()
     }
   }, [movements]);

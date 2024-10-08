@@ -1,6 +1,5 @@
 import prisma from "@/lib/prisma";
 import { NextResponse } from "next/server";
-import { z } from "zod";
 
 type MatchesByUserIdParams = {
   params: {
@@ -18,10 +17,12 @@ export const GET = async (req: Request, { params }: MatchesByUserIdParams) => {
     return NextResponse.json({
       matches: matchesData,
     });
-  } catch (error) {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+  } catch (error: any) {
     return NextResponse.json(
       {
         message: "Internal Server Error",
+        messages: error?.message,
       },
       { status: 500 }
     );
