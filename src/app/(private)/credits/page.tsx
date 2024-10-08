@@ -17,13 +17,13 @@ const CreditsPage = () => {
           <div className="flex flex-col md:flex-row justify-between">
             <div className="text-xl font-semibold mt-2">Contacts</div>
             <div className="text-justify md:text-right">
-              <div>Phone number: +5584981720382</div>
-              <div>email: otavioblbarbosa@gmail.com</div>
+              <div>Phone number: <Link href="https://wa.me/5584981720382" target="_blank">+5584981720382</Link></div>
+              <div>email: <Link href="mailto:otavioblbarbosa@gmail.com">otavioblbarbosa@gmail.com</Link></div>
             </div>
           </div>
           <div className="flex flex-col md:flex-row justify-between">
             <div className="text-xl font-semibold mt-2">Links</div>
-            <div className="text-justify md:text-right">
+            <div className="flex flex-col text-justify md:text-right">
               <Link href="https://github.com/otaviolbarbosa" target="_blank">
                 Github
               </Link>
