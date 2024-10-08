@@ -72,7 +72,7 @@ const useGame = () => {
     ]);
   };
 
-  const isDraw = useMemo(() => moves.length === board?.length, [moves, board]);
+  const isDraw = useMemo(() => !winner && moves.length === board?.length, [winner, moves, board]);
 
 
   useEffect(() => {
