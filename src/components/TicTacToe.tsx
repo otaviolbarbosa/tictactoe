@@ -75,7 +75,7 @@ const TicTacToe = ({ movements }: TicTacToeParams) => {
           <div className="font-bold text-white text-4xl">WINNER!</div>
         </div>
       )}
-      {isDraw && (
+      {!winner && isDraw && (
         <div className="bg-gray-400 rounded-lg p-4 text-center">
           <div className="flex justify-center gap-4 text-6xl text-gray-600">
             <PlayerIcon player="X" />
